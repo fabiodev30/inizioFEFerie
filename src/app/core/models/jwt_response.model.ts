@@ -1,4 +1,6 @@
 export interface JwtResponse {
-    jwttoken:string;
-    username:string;
-}
+    jwtResponse: {
+      jwttoken: string;
+      username: string;
+    };
+  }
