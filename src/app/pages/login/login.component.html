@@ -1,0 +1,14 @@
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px;">
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+      <h2>Inserire le credenziali</h2>
+      <mat-form-field>
+        <input matInput placeholder="Username" name="username" [(ngModel)]="user.username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" name="password" [(ngModel)]="user.password">
+      </mat-form-field>
+      <button mat-raised-button type="submit">Invia</button>
+    </div>
+  </form>
+</div>
