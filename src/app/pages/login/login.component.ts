@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observer } from 'rxjs';
-import { JwtResponse } from 'src/app/core/models/jwt_response.model';
+import { JwtResponse } from 'src/app/core/models/autenticazione/jwt_response.model';
 import { AutenticazioneService } from 'src/app/core/service/autenticazione.service';
 import { MessageService } from 'src/app/core/service/message.service';
 

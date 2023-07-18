@@ -21,6 +21,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PageNotFoundComponentComponent } from './pages/page-not-found-component/page-not-found-component.component';
 import { HomepageComponentComponent } from './pages/homepage-component/homepage-component.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogPianoFerieComponent } from './shared/dialogs/dialog-piano-ferie/dialog-piano-ferie.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -30,7 +36,8 @@ import { HomepageComponentComponent } from './pages/homepage-component/homepage-
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponentComponent,
-    HomepageComponentComponent
+    HomepageComponentComponent,
+    DialogPianoFerieComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,12 @@ import { HomepageComponentComponent } from './pages/homepage-component/homepage-
     FlexLayoutModule,
     MatDividerModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule
   ],
   providers: [
     {

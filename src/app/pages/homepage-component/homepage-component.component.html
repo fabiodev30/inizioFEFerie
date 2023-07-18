@@ -1,2 +1,9 @@
-<h2>{{token}}</h2>
-{{username}}
+<h2>Bentornato {{username}}</h2>
+<span>Cosa vuoi fare con piani ferie</span>
+<mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle style="color: black;" (click)="openModal('I')">Inserire</mat-button-toggle>
+  <mat-button-toggle style="color: black;" (click)="openModal('D')">Eliminare</mat-button-toggle>
+  <mat-button-toggle style="color: black;" (click)="openModal('M')">Modificare</mat-button-toggle>
+  <mat-button-toggle style="color: black;" (click)="openModal('G')">Visualizza piani ferie</mat-button-toggle>
+</mat-button-toggle-group>
+

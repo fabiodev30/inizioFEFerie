@@ -1,0 +1,67 @@
+<div>
+<mat-toolbar>
+    <span>PIANO FERIE</span>
+  </mat-toolbar>
+  <ng-container [ngTemplateOutlet]="templateInserimento" *ngIf="data.tipologia =='I'" ></ng-container>
+  <ng-container [ngTemplateOutlet]="templateDelete" *ngIf="data.tipologia=='D'"></ng-container>
+  <ng-container [ngTemplateOutlet]="templateModifica" *ngIf="data.tipologia=='M'"></ng-container>
+  <ng-container [ngTemplateOutlet]="templateListaFerie" *ngIf="data.tipologia=='G'"></ng-container>
+  
+</div>
+
+<ng-template #templateInserimento>
+  <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px;" *ngIf="data.tipologia=='I'">
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+        <h2>Inserire le credenziali</h2>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker"  (dateChange)="cambiaDataPartenza($event)">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker1"  (dateChange)="cambiaDataFine($event)">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Descrizione" name="descrizione" [(ngModel)]="descrizione">
+          </mat-form-field>
+        <button mat-raised-button type="submit">Invia</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templateDelete></ng-template>
+
+<ng-template #templateModifica></ng-template>
+
+<ng-template #templateListaFerie>
+  <h2 mat-dialog-title>Lista Piani Ferie</h2>
+<mat-dialog-content class="mat-typography">
+  <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px" >
+      <div fxLayout="column" fxLayoutAlign="space-between center">
+        <mat-list>
+          <mat-list-item *ngFor="let pianoferie of pianoferie">
+            <div fxLayout="row" fxLayoutGap="10px">
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <div matListItemTitle>{{pianoferie.descrizione}}</div>
+            <div matListItemLine>Data inizio: {{pianoferie.dataInizio | date}}</div>
+            <div matListItemLine>Data fine: {{pianoferie.dataFine | date}}</div>
+            <button mat-raised-button color="primary" (click)="deletePianoFerie(pianoferie.idPianoFerie)" *ngIf="pianoferie.idPianoFerie">
+              <mat-icon style="margin-left: 5px;">delete</mat-icon>
+            </button>
+          </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+  </div>
+</mat-dialog-content>
+</ng-template>
+

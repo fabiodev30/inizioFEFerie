@@ -1,4 +1,4 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AutenticazioneService } from "../service/autenticazione.service";
 import { Observable } from "rxjs";
@@ -14,12 +14,11 @@ export class IntercettatoreRequest implements HttpInterceptor {
       }
     const { token, username } = this.authService.recuperaCredentiali();
     if (token && username) {
-      request = request.clone({
-        setHeaders: {
-            Authorization: token,
-            GESTIONALE_FERIE_USERNAME: username
-        }
+      const headers = new HttpHeaders({
+        'Authorization': token,
+        'gestionale_ferie_username': username,
       });
+      request = request.clone({ headers });
     }
     return next.handle(request);
   }
