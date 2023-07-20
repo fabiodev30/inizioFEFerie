@@ -27,6 +27,7 @@ import { DialogPianoFerieComponent } from './shared/dialogs/dialog-piano-ferie/d
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import { DettaglioPianoFerieComponent } from './shared/dialogs/dettaglio-piano-ferie/dettaglio-piano-ferie.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {MatListModule} from '@angular/material/list';
     FooterComponent,
     PageNotFoundComponentComponent,
     HomepageComponentComponent,
-    DialogPianoFerieComponent
+    DialogPianoFerieComponent,
+    DettaglioPianoFerieComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 import { PianoFerieDTO } from './PianoFerieDTO';
 
-export interface PianoFerieResponse {
+export interface PianoFerieListResponse {
     descrizioneEsito: string;
-    pianoFerieDTO: PianoFerieDTO;
+    pianoFerieDTOList: PianoFerieDTO[];
     statusCode: number;
 }

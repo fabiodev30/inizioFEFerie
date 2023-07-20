@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_AUTENTICAZIONE } from '../constants/urls';
+import { API_AUTENTICAZIONE, API_TOKEN } from '../constants/urls';
 import { JwtResponse } from '../models/autenticazione/jwt_response.model';
-
+import { Observable } from 'rxjs';
+import { HttpParams } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,4 +29,17 @@ export class AutenticazioneService {
     }
     return false;
 }
+
+  
+
+  isTokenExpired(token:string): Observable<boolean> {
+    const params = new HttpParams().set('token', token);
+    return this.http.get<boolean>(API_TOKEN, { params });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+  }
+
 }

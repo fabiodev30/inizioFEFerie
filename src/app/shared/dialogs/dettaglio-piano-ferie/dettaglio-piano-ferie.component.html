@@ -1,0 +1,35 @@
+<div>
+    <mat-toolbar>
+        <span>PIANO FERIE</span>
+        <div fxFlex></div>
+        <button mat-icon-button mat-dialog-close >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px;" >
+    <form #formMod="ngForm" (ngSubmit)="onSubmit(formMod)">
+      <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerInizio" placeholder="Data Inizio" name="dataInizio" [(ngModel)]="pianoferie.dataInizio" required>
+          <mat-datepicker-toggle matSuffix [for]="pickerInizio"></mat-datepicker-toggle>
+          <mat-datepicker #pickerInizio></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [matDatepicker]="pickerFine" placeholder="Data Fine" name="dataFine" [(ngModel)]="pianoferie.dataFine" required>
+          <mat-datepicker-toggle matSuffix [for]="pickerFine"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFine></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Ore Totali" name="oreTotali" [(ngModel)]="pianoferie.oreTotali" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Giorni Lavorativi Totali" name="giorniLavorativiTotali" [(ngModel)]="pianoferie.giorniLavorativiTotali" required>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Descrizione" name="descrizione" [(ngModel)]="pianoferie.descrizione" required></textarea>
+        </mat-form-field>
+        <button mat-raised-button type="submit" [disabled]="!formMod.touched">Invia</button>
+      </div>
+    </form>
+  </div>
+</div>
