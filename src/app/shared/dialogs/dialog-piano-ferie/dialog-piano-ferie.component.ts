@@ -127,6 +127,7 @@ export class DialogPianoFerieComponent implements OnInit {
         id: idPianoFerie,
         operation: operation,
       },
+      width: '50%',
     }).afterClosed().subscribe((_) => {
       this.getPianiFerie();
     }

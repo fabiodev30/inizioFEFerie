@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API_AUTENTICAZIONE, API_TOKEN } from '../constants/urls';
+import { API_AUTENTICAZIONE, API_CHANGE_PASSWORD, API_RECOVER_PASSWORD, API_TOKEN } from '../constants/urls';
 import { JwtResponse } from '../models/autenticazione/jwt_response.model';
 import { Observable } from 'rxjs';
 import { HttpParams } from '@angular/common/http';
+import { PianoFerieUpdate } from '../models/pianoFerie/PianoFerieUpdate';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,9 +30,6 @@ export class AutenticazioneService {
     }
     return false;
 }
-
-  
-
   isTokenExpired(token:string): Observable<boolean> {
     const params = new HttpParams().set('token', token);
     return this.http.get<boolean>(API_TOKEN, { params });
@@ -42,4 +40,13 @@ export class AutenticazioneService {
     localStorage.removeItem('username');
   }
 
+  recoverPassword(username:string) {
+    const params = new HttpParams().set('username', username);
+    return this.http.get(API_RECOVER_PASSWORD, { params });
+  }
+
+  creaNuovaPassword(username:string, password:string) {
+    const params = new HttpParams().set('username', username).set('password', password);
+    return this.http.get(API_CHANGE_PASSWORD, { params });
+  }
 }

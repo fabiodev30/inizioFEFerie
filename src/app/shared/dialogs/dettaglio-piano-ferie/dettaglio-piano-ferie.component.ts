@@ -53,7 +53,7 @@ export class DettaglioPianoFerieComponent implements OnInit {
     });
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
     // se non è presente la data di partenza o di rientro o la descrizione non faccio nulla
     this.pianboferieSevice
       .updatePianoFerie(this.data.id, this.pianoferie)

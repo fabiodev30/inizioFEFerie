@@ -1,34 +1,98 @@
 <div>
-    <mat-toolbar>
-        <span>PIANO FERIE</span>
-        <div fxFlex></div>
-        <button mat-icon-button mat-dialog-close >
-          <mat-icon>close</mat-icon>
-        </button>
-      </mat-toolbar>
-<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px;" >
-    <form #formMod="ngForm" (ngSubmit)="onSubmit(formMod)">
-      <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+  <mat-toolbar>
+    <div fxFlex></div>
+    <ng-container *ngIf="data.operation == 'M'; else elseTemplate">
+      <span style="margin-left: 40px;">MODIFICA PIANO FERIE</span>
+    </ng-container>
+    <ng-template #elseTemplate>
+      <span style="margin-left: 40px;">DETTAGLIO PIANO FERIE</span>
+    </ng-template>
+    <div fxFlex></div>
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    style="margin-top: 6px; margin-bottom: 5px"
+  >
+    <form #formMod="ngForm" (ngSubmit)="onSubmit()">
+      <div
+        fxLayout="column"
+        fxLayoutAlign="space-between center"
+        fxLayoutGap="5px"
+      >
         <mat-form-field>
-          <input matInput [matDatepicker]="pickerInizio" placeholder="Data Inizio" name="dataInizio" [(ngModel)]="pianoferie.dataInizio" required>
-          <mat-datepicker-toggle matSuffix [for]="pickerInizio"></mat-datepicker-toggle>
+          <mat-label>Data inizio</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerInizio"
+            placeholder="Data Inizio"
+            name="dataInizio"
+            [(ngModel)]="pianoferie.dataInizio"
+            required
+            [disabled]="!isModifica"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerInizio"
+          ></mat-datepicker-toggle>
           <mat-datepicker #pickerInizio></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-          <input matInput [matDatepicker]="pickerFine" placeholder="Data Fine" name="dataFine" [(ngModel)]="pianoferie.dataFine" required>
-          <mat-datepicker-toggle matSuffix [for]="pickerFine"></mat-datepicker-toggle>
+          <mat-label>Data fine</mat-label>
+          <input
+            matInput
+            [matDatepicker]="pickerFine"
+            placeholder="Data Fine"
+            name="dataFine"
+            [(ngModel)]="pianoferie.dataFine"
+            required
+            [disabled]="!isModifica"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="pickerFine"
+          ></mat-datepicker-toggle>
           <mat-datepicker #pickerFine></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Ore Totali" name="oreTotali" [(ngModel)]="pianoferie.oreTotali" required>
+          <mat-label>Ore totali</mat-label>
+          <input
+            matInput
+            placeholder="Ore Totali"
+            name="oreTotali"
+            [(ngModel)]="pianoferie.oreTotali"
+            required
+            [disabled]="!isModifica"
+          />
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Giorni Lavorativi Totali" name="giorniLavorativiTotali" [(ngModel)]="pianoferie.giorniLavorativiTotali" required>
+          <mat-label>Giorni lavorativi italiani</mat-label>
+          <input
+            matInput
+            placeholder="Giorni Lavorativi Totali"
+            name="giorniLavorativiTotali"
+            [(ngModel)]="pianoferie.giorniLavorativiTotali"
+            required
+            [disabled]="!isModifica"
+          />
         </mat-form-field>
         <mat-form-field>
-          <textarea matInput placeholder="Descrizione" name="descrizione" [(ngModel)]="pianoferie.descrizione" required></textarea>
+          <mat-label>Descrizione</mat-label>
+          <textarea
+            matInput
+            placeholder="Descrizione"
+            name="descrizione"
+            [(ngModel)]="pianoferie.descrizione"
+            required
+            [disabled]="!isModifica"
+          ></textarea>
         </mat-form-field>
-        <button mat-raised-button type="submit" [disabled]="!formMod.touched">Invia</button>
+        <button mat-raised-button type="submit" [disabled]="!formMod.touched" *ngIf="isModifica">
+          Invia
+        </button>
       </div>
     </form>
   </div>

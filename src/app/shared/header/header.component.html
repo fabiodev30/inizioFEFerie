@@ -1,7 +1,17 @@
 <mat-toolbar>
-   <span>PIANO FERIE</span>
-   <span class="example-spacer"></span>
-  <button mat-icon-button *ngIf="checkAccesso() == true" (click)="logout()">
-     <mat-icon>logout</mat-icon>
-   </button>
+    <span>PIANO FERIE</span>
+    <span class="example-spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="checkAccesso()">
+        <mat-icon style="margin-left: 5px;">settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item  (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </button>
+        <button mat-menu-item (click)="openDialogRecoverPassword()">
+          <mat-icon>help</mat-icon>
+          <span>Recupera password</span>
+        </button>
+    </mat-menu>
  </mat-toolbar>

@@ -28,7 +28,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import { DettaglioPianoFerieComponent } from './shared/dialogs/dettaglio-piano-ferie/dettaglio-piano-ferie.component';
-
+import {MatMenuModule} from '@angular/material/menu';
+import { DialogRecoverPasswordComponent } from './shared/dialogs/dialog-recover-password/dialog-recover-password.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { RecuperoPasswordComponent } from './pages/recupero-password/recupero-password.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,9 @@ import { DettaglioPianoFerieComponent } from './shared/dialogs/dettaglio-piano-f
     PageNotFoundComponentComponent,
     HomepageComponentComponent,
     DialogPianoFerieComponent,
-    DettaglioPianoFerieComponent
+    DettaglioPianoFerieComponent,
+    DialogRecoverPasswordComponent,
+    RecuperoPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ import { DettaglioPianoFerieComponent } from './shared/dialogs/dettaglio-piano-f
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatListModule
+    MatListModule,
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

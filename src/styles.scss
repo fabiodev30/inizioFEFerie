@@ -6,3 +6,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .my-custom-class {
     background: red!important;
   }
+
+  .mat-button-toggle{
+    background-color: #306cee;
+    color: #ffffff;
+}
+
+.mat-button-toggle:hover {
+    background-color: #505050;
+    color:  white;    
+}
