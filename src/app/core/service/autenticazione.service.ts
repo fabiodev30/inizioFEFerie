@@ -19,7 +19,8 @@ export class AutenticazioneService {
   recuperaCredentiali() {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
-    return {token, username};
+    const ruolo = localStorage.getItem('ruolo');
+    return {token, username,ruolo};
   }
 
   // verifico che il token sia presente e non sia scaduto, se è scaduto lo rimuovo e 

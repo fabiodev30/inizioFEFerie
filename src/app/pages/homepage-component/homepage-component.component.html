@@ -1,7 +1,8 @@
 <h2>Bentornato {{username}}</h2>
 <span>Cosa vuoi fare con piani ferie</span>
 <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
-  <mat-button-toggle  (click)="openModal('I')">Inserire</mat-button-toggle>
-  <mat-button-toggle  (click)="openModal('G')">Visualizza piani ferie</mat-button-toggle>
+  <mat-button-toggle  (click)="openModalDipendente('I')">Inserire</mat-button-toggle>
+  <mat-button-toggle  (click)="openModalDipendente('G')">Visualizza piani ferie</mat-button-toggle>
+  <mat-button-toggle  (click)="openModalResponsabile('L')" *ngIf="ruolo=='RESPONSABILE'">Vedi lista dipendenti</mat-button-toggle>
 </mat-button-toggle-group>
 

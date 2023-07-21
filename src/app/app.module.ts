@@ -32,6 +32,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import { DialogRecoverPasswordComponent } from './shared/dialogs/dialog-recover-password/dialog-recover-password.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RecuperoPasswordComponent } from './pages/recupero-password/recupero-password.component';
+import { DialogListaDipendentiComponent } from './shared/dialogs/dialog-lista-dipendenti/dialog-lista-dipendenti.component';
+import {MatCardModule} from '@angular/material/card';
+import { DialogDettaglioUtenteComponent } from './shared/dialogs/dialog-dettaglio-utente/dialog-dettaglio-utente.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { RecuperoPasswordComponent } from './pages/recupero-password/recupero-pa
     DialogPianoFerieComponent,
     DettaglioPianoFerieComponent,
     DialogRecoverPasswordComponent,
-    RecuperoPasswordComponent
+    RecuperoPasswordComponent,
+    DialogListaDipendentiComponent,
+    DialogDettaglioUtenteComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,8 @@ import { RecuperoPasswordComponent } from './pages/recupero-password/recupero-pa
     MatNativeDateModule,
     MatListModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [
     {

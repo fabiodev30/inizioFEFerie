@@ -1,0 +1,45 @@
+<div>
+    <mat-toolbar>
+        <span>LISTA DIPENDENTI</span>
+        <div fxFlex></div>
+        <button mat-icon-button mat-dialog-close >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+      <h2 mat-dialog-title>Lista Dipendenti</h2>
+      <mat-dialog-content class="mat-typography">
+        <div fxLayout="row" fxLayoutAlign="center center" class="user-list">
+          <div fxLayout="column" fxLayoutAlign="space-between center">
+            <mat-list>
+              <mat-list-item *ngFor="let utente of listaUtenti" class="user-item">
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <mat-icon matListItemIcon>person</mat-icon>
+                  <div class="user-info">
+                    <div matListItemTitle>ID: {{utente.idUtente}}</div>
+                  <div matListItemLine>Nome: {{utente.nome}}</div>
+                  <div matListItemLine>Cognome: {{utente.cognome}}</div>
+                  <div matListItemLine>Codice Fiscale: {{utente.codiceFiscale}}</div>
+                  <div matListItemLine>Data Nascita: {{utente.dataNascita}}</div>
+                  <div matListItemLine>Genere: {{utente.genere}}</div>
+                  <div matListItemLine>Email: {{utente.email}}</div>
+                  <div matListItemLine>Password: {{utente.password}}</div>
+                  <div matListItemLine>ID Responsabile: {{utente.idResponsabile}}</div>
+                  <div matListItemLine>FK Ruolo: {{utente.fkRuolo}}</div>
+                  <div matListItemLine>FK Gruppo: {{utente.fkGruppo}}</div>
+                  </div>
+                  <div fxLayout="row" fxLayoutGap="5px">
+                    <button mat-raised-button color="accent" (click)="openDialog(utente.idUtente,'D')" matTooltip="Dettaglio Utente">
+                      <mat-icon style="margin-left: 5px;">info</mat-icon>
+                    </button>
+                    <button mat-raised-button color="accent" (click)="openDialog(utente.idUtente,'FU')" matTooltip="Lista ferie Utente">
+                      <mat-icon style="margin-left: 5px;">info</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </mat-dialog-content>
+      
+    </div>

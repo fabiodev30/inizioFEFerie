@@ -1,0 +1,52 @@
+<div>
+    <mat-toolbar>
+        <span>LISTA PIANI FERIE</span>
+        <div fxFlex></div>
+        <button mat-icon-button mat-dialog-close >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-toolbar>
+      <mat-dialog-content class="mat-typography">
+        <div fxLayout="row" fxLayoutAlign="center center" class="user-list">
+          <div fxLayout="column" fxLayoutAlign="space-between center">
+            <mat-list>
+              <mat-list-item class="user-item" *ngIf="data.tipologiaOperazione=='D'; else elseTemplate">
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <mat-icon matListItemIcon>person</mat-icon>
+                  <div class="user-info">
+                    <div matListItemTitle>ID: {{utente.idUtente}}</div>
+                  <div matListItemLine>Nome: {{utente.nome}}</div>
+                  <div matListItemLine>Cognome: {{utente.cognome}}</div>
+                  <div matListItemLine>Codice Fiscale: {{utente.codiceFiscale}}</div>
+                  <div matListItemLine>Data Nascita: {{utente.dataNascita}}</div>
+                  <div matListItemLine>Genere: {{utente.genere}}</div>
+                  <div matListItemLine>Email: {{utente.email}}</div>
+                  <div matListItemLine>Password: {{utente.password}}</div>
+                  <div matListItemLine>ID Responsabile: {{utente.idResponsabile}}</div>
+                  <div matListItemLine>FK Ruolo: {{utente.fkRuolo}}</div>
+                  <div matListItemLine>FK Gruppo: {{utente.fkGruppo}}</div>
+                  </div>
+                </div>
+              </mat-list-item> 
+              <ng-template #elseTemplate>
+                <mat-list-item *ngFor="let pianoferie of pianiFerieList" class="user-item">
+                  <div fxLayout="row" fxLayoutGap="10px">
+                    <mat-icon matListItemIcon>folder</mat-icon>
+                    <div class="user-info">
+                      <div matListItemTitle>ID: {{pianoferie.idPianoFerie}}</div>
+                      <div matListItemLine>Data Inizio: {{pianoferie.dataInizio | date}}</div>
+                      <div matListItemLine>Data Fine: {{pianoferie.dataFine | date}}</div>
+                      <div matListItemLine>Descrizione: {{pianoferie.descrizione}}</div>
+                      <div matListItemLine>Ore Totali: {{pianoferie.oreTotali}}</div>
+                      <div matListItemLine>Giorni Lavorativi Totali: {{pianoferie.giorniLavorativiTotali}}</div>
+                    </div>
+                  </div>
+                </mat-list-item>
+              </ng-template>
+            </mat-list>
+          </div>
+        </div>
+      </mat-dialog-content>
+      
+    </div>
+

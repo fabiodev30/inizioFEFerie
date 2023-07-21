@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         // write the token and username to localStorage
         localStorage.setItem('token', response.jwtResponse.jwttoken);
         localStorage.setItem('username', response.jwtResponse.username);
+        localStorage.setItem('ruolo', response.jwtResponse.descrizioneRuolo);
         // message to the user
         this.messageService.openSnackBar(
           'Login effettuato con successo',
