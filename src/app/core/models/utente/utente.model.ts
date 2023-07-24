@@ -1,3 +1,6 @@
+import { GruppoDTO } from "../gruppo/GruppoDTO";
+import { RuoloDTO } from "../ruolo/ruoloDTO";
+
 export interface UtenteDto {
     idUtente: number;
     nome: string;
@@ -7,9 +10,9 @@ export interface UtenteDto {
     genere: string;
     email: string;
     password: string;
-    idResponsabile: number;
-    fkRuolo: number;
-    fkGruppo: number;
+    responsabile: UtenteDto;
+    ruolo: RuoloDTO;
+    gruppo: GruppoDTO;
 }
 
 

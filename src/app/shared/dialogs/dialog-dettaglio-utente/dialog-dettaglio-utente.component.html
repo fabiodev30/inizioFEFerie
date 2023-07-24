@@ -1,6 +1,9 @@
 <div>
     <mat-toolbar>
-        <span>LISTA PIANI FERIE</span>
+        <span *ngIf="data.tipologiaOperazione=='D'; else elseProva">DETTAGLIO UTENTE</span>
+        <ng-template #elseProva>
+          <span>LISTA PIANI FERIE UTENTE</span>
+        </ng-template>
         <div fxFlex></div>
         <button mat-icon-button mat-dialog-close >
           <mat-icon>close</mat-icon>
@@ -14,29 +17,25 @@
                 <div fxLayout="row" fxLayoutGap="10px">
                   <mat-icon matListItemIcon>person</mat-icon>
                   <div class="user-info">
-                    <div matListItemTitle>ID: {{utente.idUtente}}</div>
-                  <div matListItemLine>Nome: {{utente.nome}}</div>
-                  <div matListItemLine>Cognome: {{utente.cognome}}</div>
+                    <div matListItemTitle>{{utente.nome}} {{utente.cognome}}</div>
                   <div matListItemLine>Codice Fiscale: {{utente.codiceFiscale}}</div>
                   <div matListItemLine>Data Nascita: {{utente.dataNascita}}</div>
                   <div matListItemLine>Genere: {{utente.genere}}</div>
                   <div matListItemLine>Email: {{utente.email}}</div>
-                  <div matListItemLine>Password: {{utente.password}}</div>
-                  <div matListItemLine>ID Responsabile: {{utente.idResponsabile}}</div>
-                  <div matListItemLine>FK Ruolo: {{utente.fkRuolo}}</div>
-                  <div matListItemLine>FK Gruppo: {{utente.fkGruppo}}</div>
+                  <div matListItemLine>Responsabile: {{utente.responsabile.nome}} {{utente.responsabile.cognome}}</div>
+                  <div matListItemLine>Ruolo: {{utente.ruolo.descrizioneRuolo}}</div>
+                  <div matListItemLine>Gruppo: {{utente.gruppo.descrizioneGruppo}}</div>
                   </div>
                 </div>
               </mat-list-item> 
               <ng-template #elseTemplate>
                 <mat-list-item *ngFor="let pianoferie of pianiFerieList" class="user-item">
                   <div fxLayout="row" fxLayoutGap="10px">
-                    <mat-icon matListItemIcon>folder</mat-icon>
+                    <mat-icon matListItemIcon>calendar_month</mat-icon>
                     <div class="user-info">
-                      <div matListItemTitle>ID: {{pianoferie.idPianoFerie}}</div>
+                      <div matListItemTitle>{{pianoferie.descrizione}}</div>
                       <div matListItemLine>Data Inizio: {{pianoferie.dataInizio | date}}</div>
                       <div matListItemLine>Data Fine: {{pianoferie.dataFine | date}}</div>
-                      <div matListItemLine>Descrizione: {{pianoferie.descrizione}}</div>
                       <div matListItemLine>Ore Totali: {{pianoferie.oreTotali}}</div>
                       <div matListItemLine>Giorni Lavorativi Totali: {{pianoferie.giorniLavorativiTotali}}</div>
                     </div>

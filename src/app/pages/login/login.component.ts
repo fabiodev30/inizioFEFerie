@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Observer } from 'rxjs';
 import { JwtResponse } from 'src/app/core/models/autenticazione/jwt_response.model';
 import { AutenticazioneService } from 'src/app/core/service/autenticazione.service';
 import { MessageService } from 'src/app/core/service/message.service';
+import { DialogRecoverPasswordComponent } from 'src/app/shared/dialogs/dialog-recover-password/dialog-recover-password.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private autenticazioneService: AutenticazioneService,
     private messageService: MessageService,
-    private router:Router
+    private router:Router,
+    private dialog:MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -53,5 +56,17 @@ export class LoginComponent implements OnInit {
     this.autenticazioneService
       .login(this.user.username, this.user.password)
       .subscribe(observer);
+  }
+
+  openDialogRecoverPassword() {
+    const dialogRef = this.dialog.open(DialogRecoverPasswordComponent, {
+      width: '500px',
+      height: '300px',
+    })
+    dialogRef.afterClosed().subscribe((_) => {
+      this.autenticazioneService.logout();
+      this.router.navigate(['/login']);
+    }
+    );
   }
 }

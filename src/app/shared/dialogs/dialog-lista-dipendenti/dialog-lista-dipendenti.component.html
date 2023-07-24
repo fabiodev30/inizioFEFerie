@@ -15,24 +15,21 @@
                 <div fxLayout="row" fxLayoutGap="10px">
                   <mat-icon matListItemIcon>person</mat-icon>
                   <div class="user-info">
-                    <div matListItemTitle>ID: {{utente.idUtente}}</div>
-                  <div matListItemLine>Nome: {{utente.nome}}</div>
-                  <div matListItemLine>Cognome: {{utente.cognome}}</div>
+                  <div matListItemTitle>{{utente.nome}} {{utente.cognome}}</div>
                   <div matListItemLine>Codice Fiscale: {{utente.codiceFiscale}}</div>
                   <div matListItemLine>Data Nascita: {{utente.dataNascita}}</div>
                   <div matListItemLine>Genere: {{utente.genere}}</div>
                   <div matListItemLine>Email: {{utente.email}}</div>
-                  <div matListItemLine>Password: {{utente.password}}</div>
-                  <div matListItemLine>ID Responsabile: {{utente.idResponsabile}}</div>
-                  <div matListItemLine>FK Ruolo: {{utente.fkRuolo}}</div>
-                  <div matListItemLine>FK Gruppo: {{utente.fkGruppo}}</div>
+                  <div matListItemLine>Responsabile: {{utente.responsabile.nome}} {{utente.responsabile.cognome}}</div>
+                  <div matListItemLine>Ruolo: {{utente.ruolo.descrizioneRuolo}}</div>
+                  <div matListItemLine>Gruppo: {{utente.gruppo.descrizioneGruppo}}</div>
                   </div>
                   <div fxLayout="row" fxLayoutGap="5px">
                     <button mat-raised-button color="accent" (click)="openDialog(utente.idUtente,'D')" matTooltip="Dettaglio Utente">
                       <mat-icon style="margin-left: 5px;">info</mat-icon>
                     </button>
                     <button mat-raised-button color="accent" (click)="openDialog(utente.idUtente,'FU')" matTooltip="Lista ferie Utente">
-                      <mat-icon style="margin-left: 5px;">info</mat-icon>
+                      <mat-icon style="margin-left: 5px;">calendar_month</mat-icon>
                     </button>
                   </div>
                 </div>

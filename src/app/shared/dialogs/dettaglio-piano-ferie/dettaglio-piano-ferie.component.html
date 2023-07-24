@@ -22,10 +22,20 @@
         fxLayout="column"
         fxLayoutAlign="space-between center"
         fxLayoutGap="5px"
-      >
+      ><mat-form-field>
+          <mat-label>Descrizione</mat-label>
+          <textarea
+            matInput
+            placeholder="Descrizione"
+            name="descrizione"
+            [(ngModel)]="pianoferie.descrizione"
+            required
+            [disabled]="!isModifica"
+          ></textarea>
+        </mat-form-field>
         <mat-form-field>
           <mat-label>Data inizio</mat-label>
-          <input
+          <input fxFlex
             matInput
             [matDatepicker]="pickerInizio"
             placeholder="Data Inizio"
@@ -79,17 +89,7 @@
             [disabled]="!isModifica"
           />
         </mat-form-field>
-        <mat-form-field>
-          <mat-label>Descrizione</mat-label>
-          <textarea
-            matInput
-            placeholder="Descrizione"
-            name="descrizione"
-            [(ngModel)]="pianoferie.descrizione"
-            required
-            [disabled]="!isModifica"
-          ></textarea>
-        </mat-form-field>
+        
         <button mat-raised-button type="submit" [disabled]="!formMod.touched" *ngIf="isModifica">
           Invia
         </button>

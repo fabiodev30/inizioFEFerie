@@ -30,5 +30,6 @@ export function logoutWithRouter(router: Router) {
   // rimuovo le credenziali da localStorage
   localStorage.removeItem('token');
   localStorage.removeItem('username');
+  localStorage.removeItem('ruolo');
   router.navigate(['/login']);
 }

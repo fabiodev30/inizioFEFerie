@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { checkCredenziali, logoutWithRouter } from 'src/app/core/utils/credenziali/credenziali';
-import { DialogRecoverPasswordComponent } from '../dialogs/dialog-recover-password/dialog-recover-password.component';
-import { MatDialog } from '@angular/material/dialog';
-import { AutenticazioneService } from 'src/app/core/service/autenticazione.service';
-
+import {
+  checkCredenziali,
+  logoutWithRouter,
+} from 'src/app/core/utils/credenziali/credenziali';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
+
 export class HeaderComponent {
-  constructor(private router:Router,private dialog:MatDialog,private autenticazioneService:AutenticazioneService) { }
+  constructor(private router: Router) {}
   ngOnInit(): void {
     // devo verificare se le credenziali sono presenti
     // se sono presenti allora mostro il logout
@@ -29,18 +29,4 @@ export class HeaderComponent {
   login() {
     this.router.navigate(['/login']);
   }
-
-  openDialogRecoverPassword() {
-    const dialogRef = this.dialog.open(DialogRecoverPasswordComponent, {
-      width: '500px',
-      height: '300px',
-    })
-    dialogRef.afterClosed().subscribe((_) => {
-      this.autenticazioneService.logout();
-      this.router.navigate(['/login']);
-    }
-    );
-  }
-
-
 }

@@ -9,6 +9,10 @@
         <input matInput placeholder="Password" name="password" [(ngModel)]="user.password">
       </mat-form-field>
       <button mat-raised-button type="submit">Invia</button>
+      <button mat-button color="primary" (click)="openDialogRecoverPassword()" tabindex="-1">
+        <mat-icon>help</mat-icon>
+        <span>Password dimenticata?</span>
+      </button>
     </div>
   </form>
 </div>

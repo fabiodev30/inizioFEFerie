@@ -39,6 +39,7 @@ export class AutenticazioneService {
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
+    localStorage.removeItem('ruolo');
   }
 
   recoverPassword(username:string) {

@@ -26,14 +26,14 @@
             <input matInput placeholder="Giorni Lavorativi Totali" name="giorniLavorativiTotali" [(ngModel)]="giorniLavorativiTotali" required>
           </mat-form-field>
         <mat-form-field>
-            <mat-label>Choose a date</mat-label>
+            <mat-label>Data Inizio ferie</mat-label>
             <input matInput [matDatepicker]="picker"  (dateChange)="cambiaDataPartenza($event)" required>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <mat-form-field>
-            <mat-label>Choose a date</mat-label>
+            <mat-label>Data Fine ferie</mat-label>
             <input matInput [matDatepicker]="picker1"  (dateChange)="cambiaDataFine($event)" required>
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -61,7 +61,6 @@
             <div matListItemLine>Data fine: {{pianoferie.dataFine | date}}</div>
             <div matListItemLine>Ore totali: {{pianoferie.oreTotali}}</div>
             <div matListItemLine>Giorni Lavorativi: {{pianoferie.giorniLavorativiTotali}}</div>
-            <div matListItemLine>ID: {{pianoferie.idPianoFerie}}</div>
             <button mat-raised-button color="accent" (click)="dettaglioPianoFerie(pianoferie.idPianoFerie,'I')" *ngIf="pianoferie.idPianoFerie">
               <mat-icon style="margin-left: 5px;">info</mat-icon>
             </button>

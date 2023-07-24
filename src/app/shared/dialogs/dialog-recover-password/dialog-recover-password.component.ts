@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { PianoFerieUpdate } from 'src/app/core/models/pianoFerie/PianoFerieUpdate';
 import { AutenticazioneService } from 'src/app/core/service/autenticazione.service';
 import { MessageService } from 'src/app/core/service/message.service';
 
@@ -27,7 +26,7 @@ export class DialogRecoverPasswordComponent {
     this.autenticazioneService.recoverPassword(this.username).subscribe((_) => {
       this.isLoading = false;
       this.messageService.openSnackBar(
-        'Password inviata con successo',
+        'Recupero password effettuato con successo',
         'X'
       );
       this.dialogRef.close();

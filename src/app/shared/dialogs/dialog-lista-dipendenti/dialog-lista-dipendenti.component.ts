@@ -50,7 +50,7 @@ export class DialogListaDipendentiComponent implements OnInit {
             idUtente: idUtente,
             tipologiaOperazione: 'FU',
           },
-          width: '100%',
+          width: '25%',
         });
         break;
     }
