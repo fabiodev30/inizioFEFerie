@@ -1,8 +1,8 @@
 <h2>Bentornato {{username}}</h2>
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="5px">
-<span>Cosa vuoi fare con piani ferie</span>
+<span>Cosa vuoi fare?</span>
 <div fxLayout="row" fxLayoutGap="10px">
-  <button mat-raised-button color="primary" (click)="openModalDipendente('I')">Inserire</button>
+  <button mat-raised-button color="primary" (click)="openModalDipendente('I')">Inserire piano ferie</button>
   <button mat-raised-button color="primary" (click)="openModalDipendente('G')">Visualizza piani ferie</button>
   <button mat-raised-button color="primary" (click)="openModalResponsabile('L')" *ngIf="ruolo=='RESPONSABILE'">Vedi lista dipendenti</button>
 </div>

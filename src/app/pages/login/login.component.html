@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px;">
   <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
-    <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+    <div fxLayout="column" fxLayoutAlign="space-between center" fxLayoutGap="5px" style="margin-top: 30px;">
       <h2>Inserire le credenziali</h2>
       <mat-form-field>
         <input matInput placeholder="Username" name="username" [(ngModel)]="user.username">
