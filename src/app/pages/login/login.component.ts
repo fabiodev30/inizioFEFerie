@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -46,8 +47,10 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/homepage');
         form.reset();
       },
-      error: (error) => {
-        console.log(error);
+      error: (error:HttpErrorResponse) => {
+        if (error.error=="Username o password errati") {
+          this.messageService.openSnackBar("Username o password errati", "Chiudi")
+        }
       },
       complete: () => {
         console.log('Completed');
