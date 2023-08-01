@@ -30,6 +30,7 @@ export class DialogPianoFerieComponent implements OnInit {
   pianoFerieMod!: PianoFerieDTO;
   oreTotali!: number;
   giorniLavorativiTotali!: number;
+  filtro:string = '';
 
   constructor(
     private pianoferieService: PianoferieService,
@@ -132,5 +133,12 @@ export class DialogPianoFerieComponent implements OnInit {
       this.getPianiFerie();
     }
     );
+  }
+
+  onChangeEvent(stringa: string){
+   this.pianoferie = this.pianoferie.filter((pianoferie) => pianoferie.descrizione.toLowerCase().includes(stringa.toLowerCase()));
+   if(stringa == ''){
+    this.getPianiFerie();
+   }
   }
 }

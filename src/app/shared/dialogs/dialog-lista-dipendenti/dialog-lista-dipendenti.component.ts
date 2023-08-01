@@ -16,6 +16,7 @@ export interface DialogDataListaDipendentiPROVA {
 })
 export class DialogListaDipendentiComponent implements OnInit {
   listaUtenti: UtenteDto[] = [];
+  filtro: string = '';
 
   constructor(
     private utenteService: UtenteService,
@@ -24,14 +25,7 @@ export class DialogListaDipendentiComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.utenteService
-      .recuperaListaDipendenti()
-      .subscribe((response: ResponseListaUtentiDTO) => {
-        // filtra la lista degli utenti escludendo l'utente loggato
-        this.listaUtenti = response.listaDipendenti.filter(
-          (utente) => utente.email !== this.data.email
-        );
-      });
+    this.recuperaUtenti();
   }
 
   openDialog(idUtente: number, operazione: string) {
@@ -55,4 +49,29 @@ export class DialogListaDipendentiComponent implements OnInit {
         break;
     }
   }
+
+  recuperaUtenti() {
+    this.utenteService
+    .recuperaListaDipendenti()
+    .subscribe((response: ResponseListaUtentiDTO) => {
+      // filtra la lista degli utenti escludendo l'utente loggato
+      this.listaUtenti = response.listaDipendenti.filter(
+        (utente) => utente.email !== this.data.email
+      );
+    });
+  }
+
+  onChangeEvent(stringa: string) {
+    // filtra la lista degli utenti tramite nome o cognome, se la stringa è vuota mostra tutti gli utenti
+    this.listaUtenti = this.listaUtenti.filter((utente) => {
+      return (
+        utente.nome.toLowerCase().includes(stringa.toLowerCase()) ||
+        utente.cognome.toLowerCase().includes(stringa.toLowerCase())
+      );
+    }
+    );
+    if (stringa == '') {
+      this.recuperaUtenti();
+    }
+}
 }

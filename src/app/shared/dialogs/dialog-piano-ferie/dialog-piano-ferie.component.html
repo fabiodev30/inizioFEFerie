@@ -48,7 +48,13 @@
 
 
 <ng-template #templateListaFerie>
-  <h2 mat-dialog-title>Lista Piani Ferie</h2>
+  <div fxLayout="row" style="padding: 10px;">
+    <h2 mat-dialog-title>Lista Piani Ferie</h2>
+    <div fxFlex></div>
+    <mat-form-field style="width: 300px;">
+      <input matInput [ngModel]="filtro" (ngModelChange)="onChangeEvent($event)" placeholder="Search">
+    </mat-form-field>
+  </div>
 <mat-dialog-content class="mat-typography">
   <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 6px;margin-bottom: 5px">
       <div fxLayout="column" fxLayoutAlign="space-between center">
